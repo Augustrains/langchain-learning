@@ -30,25 +30,8 @@ Agent 多步推理
 对 LangChain Runnable 架构的熟练使用
 
 🏗️ 系统架构
-                ┌──────────────┐
-                │   用户问题    │
-                └──────┬───────┘
-                       │
-                       ▼
-              ┌────────────────┐
-              │  Retriever      │
-              │  (VectorStore)  │
-              └──────┬─────────┘
-                     │
-                     ▼
-          ┌──────────────────────┐
-          │ 拼接上下文 + Prompt   │
-          └──────────┬───────────┘
-                     ▼
-               ┌──────────┐
-               │   LLM     │
-               └──────────┘
-
+  
+  用户问题-->Retriever(VectorStore)-->拼接上下文 + Prompt-->LLM 
 Agent 模块：
 
 用户问题 → LLM 决策 → 是否调用 Tool → 工具执行 → 返回结果 → LLM 生成最终回答
@@ -127,7 +110,8 @@ rag_chain = (
 
 对模块解耦的掌握
 
-📂 项目结构
+## 📂 项目结构
+```text
 Langchain/
 │
 ├── toolagent.ipynb
@@ -143,6 +127,7 @@ Langchain/
     ├── document_loaders.ipynb
     ├── text_splitter.ipynb
     └── sql.md
+```
 📈 可扩展方向
 
 该项目设计为可扩展架构，可进一步升级为：
